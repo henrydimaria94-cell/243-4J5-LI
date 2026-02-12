@@ -1,10 +1,10 @@
 // Contrôle de LEDs via commandes série
-// Pour LilyGO A7670G - Exercice 7.6
-// Commandes acceptées: "rouge" ou "vert"
+// Pour LilyGO A7670E - Exercice 7.6
+// Commandes acceptées: "vert", "bleu", "off"
 
 // Définition des pins pour les LEDs
-#define LED_ROUGE 25  // Pin GPIO pour LED rouge
-#define LED_VERTE 26  // Pin GPIO pour LED verte
+#define LED_VERTE 27  // Pin GPIO pour LED verte
+#define LED_BLEUE 12  // Pin GPIO pour LED bleue
 
 String commandeRecue = "";  // Buffer pour stocker la commande
 
@@ -14,19 +14,20 @@ void setup() {
   delay(1000);
 
   // Configurer les pins des LEDs en sortie
-  pinMode(LED_ROUGE, OUTPUT);
   pinMode(LED_VERTE, OUTPUT);
+  pinMode(LED_BLEUE, OUTPUT);
 
   // Éteindre toutes les LEDs au démarrage
-  digitalWrite(LED_ROUGE, LOW);
   digitalWrite(LED_VERTE, LOW);
+  digitalWrite(LED_BLEUE, LOW);
 
   Serial.println("========================================");
   Serial.println("Contrôle de LEDs via Port Série");
   Serial.println("========================================");
   Serial.println("Commandes disponibles:");
-  Serial.println("  - rouge : Allume LED rouge, éteint LED verte");
-  Serial.println("  - vert  : Allume LED verte, éteint LED rouge");
+  Serial.println("  - vert  : Allume LED verte (GPIO 27), éteint LED bleue");
+  Serial.println("  - bleu  : Allume LED bleue (GPIO 12), éteint LED verte");
+  Serial.println("  - off   : Éteint toutes les LEDs");
   Serial.println("========================================");
   Serial.println("En attente de commandes...");
 }
@@ -47,28 +48,28 @@ void loop() {
     Serial.println("'");
 
     // Traiter la commande
-    if (commandeRecue == "rouge") {
-      // Allumer LED rouge, éteindre LED verte
-      digitalWrite(LED_ROUGE, HIGH);
-      digitalWrite(LED_VERTE, LOW);
-      Serial.println("→ LED ROUGE allumée, LED VERTE éteinte");
-
-    } else if (commandeRecue == "vert" || commandeRecue == "verte") {
-      // Allumer LED verte, éteindre LED rouge
-      digitalWrite(LED_ROUGE, LOW);
+    if (commandeRecue == "vert" || commandeRecue == "verte") {
+      // Allumer LED verte, éteindre LED bleue
       digitalWrite(LED_VERTE, HIGH);
-      Serial.println("→ LED VERTE allumée, LED ROUGE éteinte");
+      digitalWrite(LED_BLEUE, LOW);
+      Serial.println("-> LED VERTE allumée (GPIO 27), LED BLEUE éteinte");
+
+    } else if (commandeRecue == "bleu" || commandeRecue == "bleue") {
+      // Allumer LED bleue, éteindre LED verte
+      digitalWrite(LED_VERTE, LOW);
+      digitalWrite(LED_BLEUE, HIGH);
+      Serial.println("-> LED BLEUE allumée (GPIO 12), LED VERTE éteinte");
 
     } else if (commandeRecue == "off" || commandeRecue == "eteindre") {
       // Éteindre toutes les LEDs
-      digitalWrite(LED_ROUGE, LOW);
       digitalWrite(LED_VERTE, LOW);
-      Serial.println("→ Toutes les LEDs éteintes");
+      digitalWrite(LED_BLEUE, LOW);
+      Serial.println("-> Toutes les LEDs éteintes");
 
     } else {
       // Commande non reconnue
-      Serial.println("→ Commande non reconnue!");
-      Serial.println("   Utilisez: rouge, vert, ou off");
+      Serial.println("-> Commande non reconnue!");
+      Serial.println("   Utilisez: vert, bleu, ou off");
     }
 
     // Vider le buffer
