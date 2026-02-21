@@ -78,6 +78,8 @@ class LEDControlUI:
         device_id = mqtt_config.get("device_id", "esp32-XXXX")
         self.led1_topic = f"{device_id}/led/1/set"
         self.led2_topic = f"{device_id}/led/2/set"
+        self.led1_state_topic = f"{device_id}/led/1/state"
+        self.led2_state_topic = f"{device_id}/led/2/state"
 
         self._init_mqtt()
 
@@ -150,6 +152,12 @@ class LEDControlUI:
             button2_topic = f"{device_id}/button/2/state"
             client.subscribe(button1_topic)
             client.subscribe(button2_topic)
+            
+            # S'abonner aux topics d'état des LEDs (CRITIQUE pour synchronisation)
+            client.subscribe(self.led1_state_topic)
+            client.subscribe(self.led2_state_topic)
+            self._add_feedback(f"✓ Abonné à {self.led1_state_topic}")
+            self._add_feedback(f"✓ Abonné à {self.led2_state_topic}")
 
         else:
             self.mqtt_connected = False
@@ -176,6 +184,21 @@ class LEDControlUI:
         topic = msg.topic
         payload = msg.payload.decode('utf-8', errors='ignore')
         self._add_feedback(f"← {topic}: {payload}")
+        
+        # Synchroniser l'état des LEDs avec les messages reçus de l'ESP32
+        if topic == self.led1_state_topic:
+            new_state = (payload == "ON")
+            if self.led1_state != new_state:
+                self.led1_state = new_state
+                self.status_message = f"LED ROUGE: {payload} (ESP32)"
+                self._add_feedback(f"🔴 LED1 mise à jour: {payload}")
+        
+        elif topic == self.led2_state_topic:
+            new_state = (payload == "ON")
+            if self.led2_state != new_state:
+                self.led2_state = new_state
+                self.status_message = f"LED VERTE: {payload} (ESP32)"
+                self._add_feedback(f"🟢 LED2 mise à jour: {payload}")
 
     def _add_feedback(self, message):
         """Ajoute un message au buffer de feedback"""
