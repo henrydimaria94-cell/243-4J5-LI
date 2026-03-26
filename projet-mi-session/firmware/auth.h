@@ -6,8 +6,8 @@
 // CONFIGURATION WiFi - WPA2-Personal
 // ============================================================================
 
-const char* WIFI_SSID = "BELL183";              // Nom du réseau WiFi
-const char* WIFI_PASSWORD = "6EF66DEDF745";     // Mot de passe WiFi
+const char* WIFI_SSID = "Henri";              // Nom du réseau WiFi
+const char* WIFI_PASSWORD = "Alia0794";     // Mot de passe WiFi
 
 // ============================================================================
 // CONFIGURATION MQTT
@@ -29,7 +29,7 @@ const char MQTT_PASS[] = "Dumont@1994";
 // Device ID - Identifiant unique de l'appareil
 // Format suggéré: "esp32-XXXXXX" (6 derniers caractères de l'IMEI ou personnalisé)
 // Cet identifiant sera utilisé comme préfixe pour tous les topics MQTT
-const char MQTT_CLIENT_ID[] = "esp32-henridumomt";     // ⚠️ À personnaliser selon votre appareil
+const char MQTT_CLIENT_ID[] = "esp32-henridumont";     // ⚠️ À personnaliser selon votre appareil
 const char TOPIC_BUTTONS[] = "etudiant/henri-tadja/sensors/buttons";
 const char TOPIC_POTS[]    = "etudiant/henri-tadja/sensors/pots";
 const char TOPIC_ACCEL[]   = "etudiant/henri-tadja/sensors/accel";

@@ -528,6 +528,7 @@ void publishAccel() {
   doc["pitch"] = pitch;
   
   char buf[256]; 
+  serializeJson(doc, buf);
   mqtt.publish(TOPIC_ACCEL, buf);
 }
 

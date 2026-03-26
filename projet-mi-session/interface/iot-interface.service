@@ -1,0 +1,17 @@
+[Unit]
+Description=Interface IoT — Projet mi-session
+After=network.target
+
+[Service]
+Type=simple
+User=henridumont
+WorkingDirectory=/home/henridumont/243-4J5-LI/projet-mi-session/interface
+Environment=PYTHONPATH=/usr/lib/python3/dist-packages
+Environment=SDL_VIDEODRIVER=KMSDRM
+Environment=SDL_RENDER_DRIVER=software
+ExecStart=/usr/bin/python3 /home/henridumont/243-4J5-LI/projet-mi-session/interface/main.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
