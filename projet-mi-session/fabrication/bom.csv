@@ -1,0 +1,32 @@
+Reference,Qty,Value,Footprint,Description,Manufacturer,Manufacturer Part Number,Supplier,Supplier Part Number,Notes
+"U1",1,"LilyGo-T-A7670E-R2","LilyGO:LilyGo-T-A7670E-R2","Module ESP32 avec modem cellulaire A7670","LilyGO","T-A7670E-R2","","","Module principal - ESP32 + A7670E"
+"U2",1,"MPU-6050","MPU-6050_Breakout","Capteur IMU 6-axes (gyroscope + accéléromètre)","InvenSense","MPU-6050","","","Module breakout MPU-6050"
+"D1",1,"LED","LED_THT:LED_D5.0mm","LED 5mm traversante","Generic","LED-5mm","","","Rouge, verte ou bleue selon préférence"
+"R1",1,"330Ω","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","Résistance 330 ohms 1/4W","Generic","R-330R","","","Résistance pour LED"
+"R2",1,"330Ω","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","Résistance 330 ohms 1/4W","Generic","R-330R","","","Résistance pour LED"
+"R3",1,"330Ω","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","Résistance 330 ohms 1/4W","Generic","R-330R","","","Résistance pour LED"
+"R4",1,"10kΩ","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","Résistance 10k ohms 1/4W","Generic","R-10K","","","Résistance pull-up/pull-down"
+"RV1",1,"10kΩ","Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical","Potentiomètre 10k linéaire","Bourns","3386P-1-103TL","","","Potentiomètre trimmer 10k"
+"RV2",1,"10kΩ","Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical","Potentiomètre 10k linéaire","Bourns","3386P-1-103TL","","","Potentiomètre trimmer 10k"
+"RV3",1,"10kΩ","Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical","Potentiomètre 10k linéaire","Bourns","3386P-1-103TL","","","Potentiomètre trimmer 10k"
+"SW1",1,"SW_Push","SW_B3WN-600x_OMR","Bouton poussoir tactile","Omron","B3W-6000","","","Bouton tactile 6x6mm"
+"SW2",1,"SW_Push","SW_B3WN-600x_OMR","Bouton poussoir tactile","Omron","B3W-6000","","","Bouton tactile 6x6mm"
+"SW3",1,"SW_Push","SW_B3WN-600x_OMR","Bouton poussoir tactile","Omron","B3W-6000","","","Bouton tactile 6x6mm"
+
+"HARDWARE",,,,,,,,
+"PCB",1,"Shield ESP32","210x140mm 2-layer","Circuit imprimé 2 couches","","","","","Voir fichiers Gerber dans /fabrication/gerbers/"
+"Header pins",2,"Header 1x19","2.54mm pitch","Connecteurs mâles pour ESP32","Generic","Header-1x19-2.54mm","","","Pour connexion au module LilyGO"
+"Header sockets",2,"Socket 1x19","2.54mm pitch","Connecteurs femelles pour ESP32","Generic","Socket-1x19-2.54mm","","","Pour recevoir le module LilyGO"
+"Header pins",1,"Header 1x8","2.54mm pitch","Connecteur pour MPU-6050","Generic","Header-1x8-2.54mm","","","Pour connexion au MPU-6050"
+"Jumper wires",1,"Set de câbles","Mâle-Femelle","Câbles de connexion pour prototypage","Generic","Jumper-Wire-Set","","","Pour tests breadboard"
+"Screws",4,"M3x6mm","","Vis de fixation PCB","Generic","M3-6mm","","","Optionnel pour montage"
+"Spacers",4,"M3x10mm","","Entretoises nylon","Generic","M3-Spacer-10mm","","","Optionnel pour montage"
+
+"NOTES",,,,,,,,
+"1. Toutes les résistances sont 1/4W ±5%",,,,,,,,
+"2. Les potentiomètres peuvent être remplacés par des modèles équivalents 10kΩ linéaires",,,,,,,,
+"3. La couleur de la LED est au choix (rouge recommandé pour visibilité)",,,,,,,,
+"4. Les boutons tactiles 6x6mm peuvent être remplacés par des modèles équivalents",,,,,,,,
+"5. Le module LilyGO T-A7670E peut nécessiter une carte SIM pour fonctionnalité cellulaire",,,,,,,,
+"6. Une alimentation 5V/2A minimum est recommandée pour le module LilyGO",,,,,,,,
+"7. Voir fabrication-readme.md pour instructions de fabrication PCB",,,,,,,,
