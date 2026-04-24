@@ -1,32 +1,28 @@
-# Configuration MQTT avec identifiants sensibles
-labo2/led-control/mqtt_config.py
-labo2/code/lilygo_lte_mqtt/auth.h
+# ─── Fichiers de configuration sensibles ─────────────────────────────────────
+config.h
+*/config.h
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-*.egg-info/
-dist/
+# ─── Artefacts de compilation Arduino ────────────────────────────────────────
 build/
-venv/
-env/
-ENV/
+*/build/
+*.ino.cpp
+*.elf
+*.bin
+*.map
+*.hex
 
-# Logs
-*.log
+# ─── PlatformIO ───────────────────────────────────────────────────────────────
+.pio/
+.pioenvs/
+.piolibdeps/
 
-# IDE
+# ─── Éditeurs ─────────────────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
-# OS
+# ─── Systèmes d'exploitation ──────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
-/theorie/node_modules
-theorie/pnpm-lock.yaml
+desktop.ini
